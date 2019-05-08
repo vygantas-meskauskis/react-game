@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/StarMatch.css';
 import {range} from '../utils/math.js';
+import StarDisplay from './StarDisplay';
 
 const StarMatch = () => {
     const [stars, setStars] = useState(range(0,5));
@@ -12,10 +13,7 @@ const StarMatch = () => {
         </div>
         <div className="body">
           <div className="left">
-            {stars.map(star => 
-                <div key={star} className="star" />
-            )}
-            <div className="star" />
+            <StarDisplay stars={stars} />
           </div>
           <div className="right">
             {
