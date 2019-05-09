@@ -1,10 +1,17 @@
 import React, { useState } from 'react';
 import '../styles/StarMatch.css';
-import {range} from '../utils/math.js';
+import {range, random} from '../utils/math.js';
 import StarDisplay from './StarDisplay';
 
+const PlayNumber = props => (
+  <button className="number" onClick={() => console.log("num: " + props.number)}>
+    {props.number}
+  </button>
+);
+
+
 const StarMatch = () => {
-    const [stars, setStars] = useState(range(0,5));
+    const [stars, setStars] = useState(random(1,9));
 
     return (
       <div className="game">
@@ -13,12 +20,13 @@ const StarMatch = () => {
         </div>
         <div className="body">
           <div className="left">
-            <StarDisplay stars={stars} />
+            <StarDisplay count={stars} />
           </div>
           <div className="right">
             {
                 range(1,9).map(number => 
-                    <button key={number} className="number">{number}</button>)
+                    <PlayNumber key={number} number={number}/>
+                    )
             }
           </div>
         </div>

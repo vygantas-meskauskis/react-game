@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import {range} from '../utils/math';
 
-const StarDisplay = ({stars}) => {
+const StarDisplay = ({count}) => {
     return (
-      stars.map(starId => 
+      range(1, count).map(starId => 
         <div key={starId} className="star" />
       )
     )
